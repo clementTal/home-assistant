@@ -10,7 +10,7 @@ import logging
 from aiohttp import web
 import voluptuous as vol
 
-from homeassistant.auth import generate_secret
+from homeassistant.auth.util import generate_secret
 from homeassistant.components.http import HomeAssistantView
 from homeassistant.const import CONF_API_KEY, EVENT_HOMEASSISTANT_STOP, URL_API
 import homeassistant.helpers.config_validation as cv
@@ -130,7 +130,7 @@ def setup(hass, config) -> bool:
     return True
 
 
-class RachioPerson(object):
+class RachioPerson:
     """Represent a Rachio user."""
 
     def __init__(self, hass, rachio):
@@ -162,7 +162,7 @@ class RachioPerson(object):
         return self._controllers
 
 
-class RachioIro(object):
+class RachioIro:
     """Represent a Rachio Iro."""
 
     def __init__(self, hass, rachio, data):

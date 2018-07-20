@@ -38,10 +38,10 @@ class APIStatus(enum.Enum):
 
     def __str__(self) -> str:
         """Return the state."""
-        return self.value
+        return self.value  # type: ignore
 
 
-class API(object):
+class API:
     """Object to pass around Home Assistant API location and credentials."""
 
     def __init__(self, host: str, api_password: Optional[str] = None,
